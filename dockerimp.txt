@@ -1,0 +1,4 @@
+Docker Doemon-run comnd all docker
+docker run-itd -detached mode run container
+sudo docker exec -it containerid bash -go inside container
+gedit to edit dockerfile in notepad
