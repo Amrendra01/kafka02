@@ -1,0 +1,42 @@
+RCA-roft consesus Alogorithhm
+gossip protocal between server comm. in kafka broker 
+rpc-protocol between zoopkeeper
+Wall-Sequence Io
+murmurhash algo for key 
+
+PAc ELC
+Lingering
+groupname consumer
+partition no. =2/3* key
+replication=less than partition
+Thread in consumer=partition no.
+throtling max-pole-record-size
+fetch-min-bytes-config-min records needed for fetching
+fetch-max-bytes-config-throtling size
+max-partition-bytes-min rates per partition
+Transaction in Kafka for transactional data
+enable idempotent=true-trasaction-state topic
+acls-admin controlof kafka
+Apache Avro-binary serelizer-Confluente
+avsc file for diff. language -producer and consumer
+Schema registory-_schemas topic-hashtable against topic with hash
+LDap Authentication and kervose Authentication
+Apermal folder for controller
+promethius database-jmx metrics of kafka
+datadog-monitoring tool
+CMAk-third prty site for clustur mgt
+graphana-visiul 
+
+confluent hub
+
+Apache storm
+Apache Spark
+flink
+samza
+nuclio-serverless function
+Direct Acyclic graph
+DAg
+rocksdb-keytable
+tubling window
+ksqldb
+pem file for authentication

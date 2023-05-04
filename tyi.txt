@@ -1,0 +1,49 @@
+{
+  "type": "record",
+  "namespace": "com.mycorp.mynamespace",
+  "name": "AgniveerRecord",
+  "doc": "Agniveer schema to help you get started.",
+  "fields": [
+    {
+      "name": "firstname",
+      "type": "string",
+      "doc": "The name of the soldier."
+    },
+{
+      "name": "lastname",
+      "type": "string",
+      "doc": "The lastname of the soldier."
+    },
+{
+      "name": "fathername",
+      "type": "string",
+      "doc": "The fathername of the soldier."
+    },
+    {
+      "name": "dob",
+      "type": "date",
+      "doc": "dob of soldier."
+    },
+{
+      "name": "10th",
+      "type": "boolean",
+      "doc": "10th pass or not."
+    },
+    {
+      "name": "aadharcard",
+      "type": "string",
+      "doc": "aadharcard number."
+    },
+{
+      "name": "pancardd",
+      "type": [ "string, "null" ],
+      "doc": "The string is a unicode character sequence."
+    },
+{
+      "name": "bloodgroup",
+      "type": "string",
+      "doc": "bloodgroup of soldier."
+    }
+  ]
+}
+
