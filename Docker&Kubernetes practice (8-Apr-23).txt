@@ -1,0 +1,190 @@
+8-Apr-2023
+
+[14:34] Pankaj (Guest)
+
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+
+  name: ey-learning-pod
+
+spec:
+
+  containers:
+
+  - name: my-container
+
+    image: nginx
+
+    ports:
+
+    - containerPort: 80
+
+*************************************
+
+[14:34] Pankaj (Guest)
+
+   33  kubectl get nodes
+
+   34  kubectl get nodes -o wide
+
+   35  clear
+
+   36  kubectl get pods --all-namespaces
+
+   37  clear
+
+   38  mkdir ey-kubernetes
+
+   39  ls
+
+   40  ey-kubernetes
+
+   41  cd ey-kubernetes
+
+   42  ls
+
+   43  clear
+
+   44  ls
+
+   45  vi my-pod.yml
+
+   46  kubectl get apiversion
+
+   47  kubectl apiversion
+
+   48  kubectl api-version
+
+   49  kubectl api-versions
+
+   50  clear
+
+   51  kubectl api-versions
+
+   52  kubectl get api-versions
+
+   53  api-versions
+
+   54  clear
+
+   55  kubectl api-resources
+
+   56  clear
+
+   57  vi my-pod.yml
+
+   58  kubectl get pods
+
+   59  kubectl api-resources
+
+   60  clear
+
+   61  kubectl get pods
+
+   62  ls
+
+   63  kubectl create -f my-pod.yml
+
+   64  kubectl get pods
+
+   65  kubectl get pods -o wide
+
+   66  kubectl describe pod ey-learning-pod
+
+   67  clear
+
+   68  kubectl get pods -o wide
+
+   69  curl 192.168.23.65
+
+   70  kubectl delete po ey-learning-pod
+
+   71  kubectl get pods
+
+
+[14:35] Pankaj (Guest)
+Quick Five minutes for hands on
+
+*****************************************
+[16:27] Pankaj (Guest)
+
+   90  kubectl get namespaces
+
+   91  ls
+
+   92  kubectl create -f my-pod.yml
+
+   93  kubectl describe pod ey-learning-pod
+
+   94  clear
+
+   95  kubectl get namespaces
+
+   96  clear
+
+   97  kubectl get namespaces
+
+   98  kubectl get pods
+
+   99  kubectl delete po ey-learning-pod
+
+  100  clear
+
+  101  kubectl get po
+
+  102  clear
+
+  103  kubectl get ns
+
+  104  kubectl create namespace development
+
+  105  kubectl get ns
+
+  106  kubectl create namespace system-testing
+
+  107  kubectl get
+
+  108  clear
+
+  109  kubectl get ns
+
+  110  ls
+
+  111  kubectl create -f my-pod.yml --namespace=development
+
+  112  kubectl get pods
+
+  113  kubectl get pods --namespace=development
+
+  114  kubectl decribe pods --namespace=development
+
+  115  kubectl describe pods --namespace=development
+
+  116  clear
+
+  117  kubectl get ns
+
+  118  kubectl config set-context --current --namespace=system-testing
+
+  119  kubectl create -f my-pod.yml
+
+  120  kubectl get pods
+
+  121  kubectl describe pod ey-learning-pod
+
+  122  clear
+
+  123  kubectl config set-context --current --namespace=default
+
+  124  clear
+
+  125  kubectl get ns
+
+  126  kubectl delete ns development system-testing
+
+
+[16:27] Pankaj (Guest)
+*************************************

@@ -1,0 +1,292 @@
+****************************
+
+apiVersion: v1
+
+kind: ReplicationController
+
+metadata:
+
+  name: ey-rc
+
+spec:
+
+  replicas: 10
+
+  selector:
+
+    org: ey
+
+  template:
+
+    metadata:
+
+      name: ey-pod-rc
+
+      labels:
+
+        org: ey
+
+    spec:
+
+      containers:
+
+      - name: my-container
+
+        image: nginx
+
+        ports:
+
+        - containerPort: 80
+
+
+****************************
+
+[10:06] Pankaj (Guest)
+YAML for Replication Controller
+
+
+176  vi replication-controller.yml
+  177  kubectl create -f replication-controller.yml
+  178  kubectl get pods
+  179  od   1/1     Running             0          15m
+  180  clear
+  181  kubectl get pods
+  182  kubectl get rc
+  183  kubectl describe rc ey-rc
+  184  clear
+  185  kubectl get pods
+  186  kubectl get rc
+  187  kubectl delete pods --all
+  188  kuebctl get pods
+  189  kubectl get pods
+  190  clear
+  191  kubectl get pods
+  192  kubectl get rc
+  193  kubectl delete pods --all
+  194  kubectl get rc
+  195  kubectl get pods
+  196  clear
+  197  kubectl get pods
+  198  kubectl get rc
+  199  kubectl delete rc ey-rc
+  200  kubectl get pods
+  201  kubectl get rc
+
+
+Five Minutes Hands on 
+
+Replication Controller 
+
+Replication Controller
+
+
+**************************************
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ey-deployment
+  labels:
+    team: devops
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      team: devops
+  template:
+    metadata:
+      labels:
+        team: devops
+    spec:
+      containers:
+      - name: any-container
+        image: nginx
+        ports:
+        - containerPort: 80
+
+************************************************
+
+  212  vi ey-deployment.yml
+
+  213  kubectl api-resources | less
+
+  214  vi ey-deployment.yml
+
+  215  clear
+
+  216  kubectl get pods
+
+  217  clear
+
+  218  kubectl get all
+
+  219  ls
+
+  220  kubectl create -f ey-deployment.yml
+
+  221  kubectl get all
+
+  222  clear
+
+  223  kubectl get all
+
+  224  kubectl delete pods --all
+
+  225  kubectl get all
+
+  226  clear
+
+  227  kubectl get all
+
+  228  kubectl delete rs ey-deployment-64dcfc4859
+
+  229  kuebctl get all
+
+  230  kubectl get all
+
+  231  clear
+
+  232  kubectl get all
+
+  233  kubectl delete deploy ey-deployment
+
+  234  kuebctl get all
+
+  235  clear
+
+  236  kubectl get all
+
+  237  kubectl create -f ey-deployment.yml
+
+  238  kubectl get all
+
+  239  kubectl describe deploy ey-deployment
+
+  240  clear
+
+  241  kubectl get pods -o wide
+
+
+***********************************************************
+
+  255  kubectl scale deployment ey-deployment --replicas=25
+  256  kubectl get all
+  257  clear
+  258  kubectl get all
+  259  clear
+  260  kubectl get all
+  261  clear
+  262  kubectl scale deployment ey-deployment --replicas=1
+  263  kubectl get all
+  264  clear
+  265  kubectl get all
+  266  kubectl autoscale deploy ey-deployment --min=5 --max=50 --cpu-percent=80
+  267  kubectl get all
+  268  clear
+  269  kubectl get all
+  270  clear
+  271  ls
+  272  vi my-pod.yml
+  273  clear
+  274  kuebctl get pod
+  275  clear
+  276  kubectl get all
+  277  kubectl scale deployment ey-deployment --replicas=1
+  278  kubectl get all
+  279  clear
+  280  kubectl get all
+  281  clear
+  282  ls
+  283  kubectl get deploy
+  284  kubectl get all
+  285  clear
+  286  kubectl get pods -o wide
+  287  kubectl get nodes
+  288  kubectl describe node e-y-kubernetes-01
+  289  clear
+  290  kubectl get nodes
+  291  kubectl describe node e-y-kubernetes-02
+  292  kubectl describe node e-y-kubernetes-03
+  293  kubectl describe node e-y-kubernetes-01
+  294  clear
+  295  ls
+  296  vi  my-pod.yml
+  297  clear
+  298  kubectl describe deploy ey-deployment.yml
+  299  kubectl describe deploy ey-deployment
+  300  clear
+  301  ls
+  302  vi ey-deployment.yml
+  303  kubectl apply -f  ey-deployment.yml
+  304  kubectl get all
+  305*
+  306  kubectl get all
+  307  kubectl delete horizontalpodautoscaler.autoscaling/ey-deployment
+  308  clear
+  309  kubectl get all
+  310  vi ey-deployment.yml
+  311  kubectl apply -f  ey-deployment.yml
+  312  kubectl get all
+  313  clear
+  314  kubectl get all
+  315  kubectl edit deploy ey-deployment
+  316  kubectl get all
+  317  ls
+  318  vi ey-deployment.yml
+  319  clear
+  320  kubectl edit deploy ey-deployment
+  321  kubectl get all
+
+************************************
+
+YAMLs for three types of Services
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cip-service
+spec:
+  type: ClusterIP
+  selector:
+    team: devops
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+
+***********************
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeport-service
+spec:
+  type: NodePort
+  selector:
+    team: devops
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      nodePort: 31000
+# NodePort Range 30000 to 32767
+      targetPort: 80
+
+*****************************
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-service
+spec:
+  type: LoadBalancer
+  externalIPs:
+  - 143.110.253.132
+  selector:
+    team: devops
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+# NodePort Range 30000 to 32767
+      targetPort: 80
+
+***********************************
